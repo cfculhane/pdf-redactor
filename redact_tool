@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!./venv/bin/python
 
 
 import re
@@ -8,6 +8,7 @@ import pdf_redactor
 
 import click
 from pathlib import Path
+import sys
 
 
 email_redactor = (
@@ -39,7 +40,7 @@ def fields_redactor(fields):
     return r
 
 
-def redact_args(fields, in_file):
+def redact_args(fields, in_file, out_path):
     # Set options.
     options = pdf_redactor.RedactorOptions()
     options.metadata_filters = {
@@ -60,18 +61,23 @@ def redact_args(fields, in_file):
     ]
 
     options.input_stream = in_file
-    options.output_stream = 'out/' + in_file.name
+    options.output_stream = Path.joinpath(out_path, in_file.name)
+    click.echo(f"Redacting: {options.input_stream}")
+    click.echo(f"Writing: {options.output_stream}")
 
-    pdf_redactor.redactor(options)
+    try:
+        pdf_redactor.redactor(options)
+    except Exception as e:
+        click.echo(f"Error received from pdf_redactor: {e}")
 
 
 def check_dir(p):
-    target_dir = Path(p)
-    if not (target_dir.exists() or target_dir.is_dir()):
+    if not (p.exists() or p.is_dir()):
         click.echo(
             f"Path {p} is not a valid directory.",
             err=True
         )
+        sys.exit(1)
 
 
 #  should take in name of the person
@@ -114,6 +120,8 @@ def redact(**kwargs):
 
     """
     fields = [f.strip() for f in kwargs['redact']]
+    in_path = Path(kwargs["in"])
+    out_path = Path(kwargs["out"])
     if not fields:
         click.echo("""
                       WARNING
@@ -125,11 +133,17 @@ def redact(**kwargs):
 
            Emails and DOB will be redacted.
         """)
-    (check_dir(p) for p in [kwargs['in'], kwargs['out']])
-    in_files = Path("in").glob("*.pdf")
-    for file in in_files:
-        redact_args(fields, file)
+    check_dir(in_path)
+    check_dir(out_path)
 
+    in_files = in_path.glob("*.pdf")
+
+    for file in in_files:
+        redact_args(fields, file, out_path)
+    else:
+        click.echo(
+            f"No more PDF files in \"{in_path}\" folder."
+        )
 
 
 if __name__ == '__main__':
