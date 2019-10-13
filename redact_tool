@@ -79,7 +79,7 @@ def check_dir(p):
 
 @click.command()
 @click.argument(
-    'redact',
+    'text',
     nargs=-1
 )
 @click.option(
@@ -93,7 +93,7 @@ def check_dir(p):
     help="Specify a folder to place your output PDFs"
 )
 def redact(**kwargs):
-    fields = [f.strip() for f in kwargs['redact']]
+    fields = [f.strip() for f in kwargs['text']]
     if not fields:
         click.echo("""
                       WARNING
