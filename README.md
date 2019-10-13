@@ -1,3 +1,12 @@
+# redact_tool
+
+This is a command line tool that will 
+
+
+
+
+See below for the original repo of what this tool is using:
+
 pdf-redactor
 ============
 

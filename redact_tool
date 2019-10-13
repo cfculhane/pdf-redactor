@@ -1,4 +1,4 @@
-#!/Users/okunoe01/workspace/pdf-redactor-fork/venv/bin/python
+#!venv/bin/python
 
 
 import re
@@ -79,7 +79,7 @@ def check_dir(p):
 
 @click.command()
 @click.argument(
-    'text',
+    'redact',
     nargs=-1
 )
 @click.option(
@@ -93,7 +93,27 @@ def check_dir(p):
     help="Specify a folder to place your output PDFs"
 )
 def redact(**kwargs):
-    fields = [f.strip() for f in kwargs['text']]
+    """ Let's unbias hiring processes!
+    ------------------------------------------------------
+
+    Redacts text from PDF files from a folder
+    and places redacted PDF files to a folder.
+    By default the source folder is "in" and the
+    output will be placed in the "out" folder.
+
+    Text redacted by default: emails, DOB in any format
+    (Jan 1, 1992, XX/XX/XXXX) etc.
+
+    You will need to supply anything else, for example: name,
+    educational institution, nationality, sexual orientation.
+    The text does not need to be caps sensitive.
+
+    Example input:
+
+    $ ./redact_tool Jane Doe Anglican university buddhist female
+
+    """
+    fields = [f.strip() for f in kwargs['redact']]
     if not fields:
         click.echo("""
                       WARNING
