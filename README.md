@@ -14,7 +14,7 @@ python3 -m venv venv
 . venv/bin/activate
 
 #Install your dependencies
-pip3 install -r requirements
+pip3 install -r requirements.txt
 # Deactivate (if you want)
 deactivate
 ```
