@@ -2,6 +2,16 @@
 
 This is a command line tool to help with unbiased hiring process. It doesn't have an UI.
 
+## TODO
+
+Keeping it here because I cannot create issues.
+
+* Add education institution matcher
+* add gender matcher (e.g. boys / men / man / girls / woman / women / ladies) etc.
+
+### Bugs
+Some characters dissappear, what is the matcher of it?
+
 ## Requirements
 
 `Python 3.7.3` - Maybe works with lower versions of Python 3 but not tested.
