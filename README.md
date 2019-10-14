@@ -8,6 +8,7 @@ Keeping it here because I cannot create issues.
 
 * Add education institution matcher
 * add gender matcher (e.g. boys / men / man / girls / woman / women / ladies) etc.
+* Remove links (e.g. github URL etc)
 
 ### Bugs
 Some characters dissappear, what is the matcher of it?
