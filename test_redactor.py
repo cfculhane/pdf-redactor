@@ -50,19 +50,13 @@ class RedactorTest(unittest.TestCase):
 		options.content_filters = [
 			(
 				re.compile(u"[−–—~‐]"),
-				lambda m: "X"
+				lambda m: "-"
+			),
+			(
+				re.compile(r"(?<!\d)(?!666|000|9\d{2})([OoIli0-9]{3})([\s-]?)(?!00)([OoIli0-9]{2})\2(?!0{4})([OoIli0-9]{4})(?!\d)"),
+				lambda m: "XXX-XX-XXXX"
 			),
 		]
-		# options.content_filters = [
-		# 	(
-		# 		re.compile(u"[−–—~‐]"),
-		# 		lambda m: "-"
-		# 	),
-		# 	(
-		# 		re.compile(r"(?<!\d)(?!666|000|9\d{2})([OoIli0-9]{3})([\s-]?)(?!00)([OoIli0-9]{2})\2(?!0{4})([OoIli0-9]{4})(?!\d)"),
-		# 		lambda m: "XXX-XX-XXXX"
-		# 	),
-		# ]
 		with RedactFixture(FIXTURE_PATH, options) as redacted_path:
 			text = pdf_to_text(redacted_path)
 			self.assertIn("Here are some fake SSNs\n\nXXX-XX-XXXX\n--\n\nXXX-XX-XXXX XXX-XX-XXXX\n\nAnd some more with common OCR character substitutions:\nXXX-XX-XXXX XXX-XX-XXXX XXX-XX-XXXX XXX-XX-XXXX XXX-XX-XXXX", text)
