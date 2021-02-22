@@ -2,14 +2,13 @@
 
 
 import re
+import sys
 from datetime import datetime
-
-import pdf_redactor
+from pathlib import Path
 
 import click
-from pathlib import Path
-import sys
 
+import pdf_redactor
 
 email_redactor = (
     re.compile(r"[\w.-]+@(?=[a-z\d][^.]*\.)[a-z\d.-]*[^.]"),
