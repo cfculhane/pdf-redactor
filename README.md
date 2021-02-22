@@ -1,3 +1,88 @@
+# redact_tool
+
+This is a command line tool to help with unbiased hiring process. It doesn't have an UI.
+
+## TODO
+
+Keeping it here because I cannot create issues.
+
+* Add education institution matcher
+* add gender matcher (e.g. boys / men / man / girls / woman / women / ladies) etc.
+* Remove links (e.g. github URL etc)
+
+### Bugs
+Some characters dissappear, what is the matcher of it?
+
+## Requirements
+
+`Python 3.7.3` - Maybe works with lower versions of Python 3 but not tested.
+
+## Setup
+
+```sh
+# Activate your [venv](https://docs.python.org/3/library/venv.html) setup. The `redact_tool` uses the Python binary in `venv` directory.
+python3 -m venv venv
+. venv/bin/activate
+
+#Install your dependencies
+pip3 install -r requirements.txt
+# Deactivate (if you want)
+deactivate
+```
+
+Now you can start using the tool!
+
+## Commands
+
+```text
+Usage: redact_tool [OPTIONS] [REDACT]...
+
+  Let's unbias hiring processes!
+  ------------------------------------------------------
+
+  Redacts text from PDF files from a folder and places redacted PDF files to
+  a folder. By default the source folder is "in" and the output will be
+  placed in the "out" folder.
+
+  Text redacted by default: emails, DOB in any format (Jan 1, 1992,
+  XX/XX/XXXX) etc.
+
+  You will need to supply anything else, for example: name, educational
+  institution, nationality, sexual orientation. The text does not need to be
+  caps sensitive.
+
+  Example input:
+
+  $ ./redact_tool Jane Doe Anglican university buddhist female
+
+Options:
+  --in TEXT   Specify a folder to place your input PDFs
+  --out TEXT  Specify a folder to place your output PDFs
+  --help      Show this message and exit.
+```
+
+## Examples
+
+Remove email and DOB from PDF files in the `in` folder and output results to the `out` folder:
+
+```sh
+./redact_tool
+```
+
+Remove words `Jane Doe Anglican university buddhist female` from PDF files in the `in` folder and output results to the `out` folder:
+
+```sh
+./redact_tool Jane Doe Anglican university buddhist female
+```
+
+Remove words `Jane Doe` from PDF files in a folder you specified (`input`) and output results to a folder you specified (`output`):
+
+```sh
+./redact_tool --in input --out output Jane Doe
+```
+
+See below for the original repo of what this tool is using:
+
 pdf-redactor
 ============
 

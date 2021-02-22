@@ -1,0 +1,1 @@
+The command line tool will output the redacted PDF here.
