@@ -12,13 +12,19 @@ import pdf_redactor
 
 email_redactor = (
     re.compile(r"[\w.-]+@(?=[a-z\d][^.]*\.)[a-z\d.-]*[^.]"),
-    lambda m: "-@-"
+    lambda m: "EMAIL@REDACTED"
 )
 
 dob_redactor = (
     re.compile(
         r"(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]|(?:Jan|Mar|May|Jul|Aug|Oct|Dec)))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2]|(?:Jan|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)(?:0?2|(?:Feb))\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9]|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep))|(?:1[0-2]|(?:Oct|Nov|Dec)))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})"),
-    lambda m: "-/-/-"
+    lambda m: "<DOB REDACTED>"
+)
+
+phone_number_redactor = (
+    re.compile(
+        r"(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\\/]?(?:#|ext\.?|extension|x)[\-\.\ \/]?(\d+))?"),
+    lambda m: "<PHONE NUM REDACTED>"
 )
 
 
@@ -44,7 +50,7 @@ def redact_args(fields, in_file, out_path):
     options = pdf_redactor.RedactorOptions()
     options.metadata_filters = {
         # Set some values, overriding any value present in the PDF.
-        "Producer": [lambda value: "CV redactor"],
+        "Producer": [lambda value: "Affinda CV redactor"],
         "CreationDate": [lambda value: datetime.utcnow()],
 
         # Clear all other fields.

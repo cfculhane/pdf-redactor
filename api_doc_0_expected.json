@@ -1,0 +1,208 @@
+{
+  "data": {
+    "certifications": [
+      "Proficient in SOLIDWORKS and Autodesk CAD Programs including finite element analysis"
+    ],
+    "dateOfBirth": null,
+    "education": [
+      {
+        "organization": "Virginia Polytechnic Institute and State University (Virginia Tech),",
+        "accreditation": {
+          "education": "Bachelor of Science",
+          "inputStr": "Bachelor of Science, Mechanical Engineering,",
+          "matchStr": "Bachelor of Science",
+          "educationLevel": "bachelors"
+        },
+        "grade": null,
+        "location": {
+          "formatted": "Blacksburg, VA, USA",
+          "streetNumber": null,
+          "street": null,
+          "apartmentNumber": null,
+          "city": "Blacksburg",
+          "postalCode": null,
+          "state": "Virginia",
+          "country": "United States",
+          "rawInput": "Blacksburg, VA"
+        },
+        "dates": {
+          "completionDate": "2021-05-01",
+          "isCurrent": true
+        }
+      }
+    ],
+    "emails": [
+      "aaaron29@vt.edu"
+    ],
+    "location": {
+      "formatted": "18205 Mainsail Pointe Dr, Cornelius, NC 28031, USA",
+      "streetNumber": "18205",
+      "street": "Mainsail Pointe Drive",
+      "apartmentNumber": null,
+      "city": "Cornelius",
+      "postalCode": "28031",
+      "state": "North Carolina",
+      "country": "United States",
+      "rawInput": "18205 Mainsail Pointe Drive"
+    },
+    "name": {
+      "raw": "Aaron A. Augustine",
+      "first": "Aaron",
+      "last": "Augustine",
+      "middle": "A.",
+      "title": ""
+    },
+    "objective": "To obtain a Summer 2020 internship with a dynamic, innovative engineering company to gain practical knowledge of the technical and business components of their engineering practices.",
+    "phoneNumbers": [
+      "+17049965466"
+    ],
+    "publications": [],
+    "referees": [
+      {
+        "name": "Stephany Aldana",
+        "text": "References\nStephany Aldana, Team Member/Mentor, Cummins Power Generation: stephany.aldana@cummins.com",
+        "email": "stephany.aldana@cummins.com",
+        "number": null
+      },
+      {
+        "name": "Bob Montero",
+        "text": "Bob Montero, Manager, Cummins Power Generation: bob.j.montero@cummins.com",
+        "email": "bob.j.montero@cummins.com",
+        "number": null
+      }
+    ],
+    "sections": [
+      {
+        "sectionType": "PersonalDetails",
+        "bbox": [
+          0.0,
+          39.2677917480469,
+          612.0,
+          111.941596984863
+        ],
+        "pageIndex": 0,
+        "text": "Aaron A. Augustine\n(704) 996-5466\naaaron29@vt.edu\nPermanent Address:\n18205 Mainsail Pointe Drive\nCornelius, NC 28031\nSchool Address:\n700 Barringer Drive\nBlacksburg, VA, 24060"
+      },
+      {
+        "sectionType": "Summary",
+        "bbox": [
+          0.0,
+          118.547088623047,
+          612.0,
+          155.509033203125
+        ],
+        "pageIndex": 0,
+        "text": "Objective\nTo obtain a Summer 2020 internship with a dynamic, innovative engineering company to gain practical\nknowledge of the technical and business components of their engineering practices."
+      },
+      {
+        "sectionType": "Education",
+        "bbox": [
+          0.0,
+          174.976089477539,
+          612.0,
+          225.479766845703
+        ],
+        "pageIndex": 0,
+        "text": "Education\nMajor: Bachelor of Science, Mechanical Engineering, expected May 2021\nMinor: Green Engineering\nVirginia Polytechnic Institute and State University (Virginia Tech), Blacksburg, VA"
+      },
+      {
+        "sectionType": "WorkExperience",
+        "bbox": [
+          0.0,
+          232.023818969727,
+          612.0,
+          361.827789306641
+        ],
+        "pageIndex": 0,
+        "text": "Internships\nHypercar Development - Intern\nInterned with Hypercar Development from May 2017 to August 2017. Hypercar Development specializes in\nactive and dual function aerodynamics, upgraded turbo systems, and performance software for McLaren Automotive cars.\nResponsibilities included CAD modeling, modification, and assembly of various components.\nCummins Power Generation \u00e2\u20ac\u201c Product Design Engineer Intern\nInterned with Cummins Power Generation from May 2018 to August 2018. Cummins Power Generation provides\nhome, commercial, and mobile Generator Sets with integrated control solutions. Responsibilities included design FMEAs,\nC&E selection matrices, concept generation, and calculation of various applied mechanics for a positive head fuel system.\nand prototyping and validation for an oil make-up system."
+      },
+      {
+        "sectionType": "Skills/Interests/Languages",
+        "bbox": [
+          0.0,
+          380.935119628906,
+          612.0,
+          529.979187011719
+        ],
+        "pageIndex": 0,
+        "text": "Related Skills\nPrototyping Experience with 3-D printing and CNC mills with an understanding of the operation and limitations of various\nmachines such as CNC axis limitations.\nComputer Aided Design\nProficient in SOLIDWORKS and Autodesk CAD Programs, including finite element analysis.\nBasic Coding Basic coding knowledge of MATLAB, BMW Standard Tools, LabVIEW, and Arduino Sketches.\nMechanical Design\nIn-depth experience with mechanical design including structural mechanics, material and manufacturing process\nselection, and mechanical drawing/CAD conversion."
+      },
+      {
+        "sectionType": "Achievements",
+        "bbox": [
+          0.0,
+          549.738647460938,
+          612.0,
+          682.391479492188
+        ],
+        "pageIndex": 0,
+        "text": "Notable Achievements\nPresident of Theta Chi Fraternity, Eta Lambda Chapter (December 2017-August 2018)\nResponsibilities included maintenance of alumni and university relations, oversight of executive officers, and\nresponsibility for all fraternity actions, events, and endeavors.\nVice President of Theta Chi Fraternity, Eta Lambda Chapter (September 2017-December 2017)\nResponsibilities included oversight and responsibility for all bylaws, judicial board cases, and non-executive\nofficers.\nExchange Student with University of Technology, Sydney (February 2019-June 2019)\nStudied Mechanical Engineering at the University of Technology, to gain experience with international engineers\nwhile taking accredited courses."
+      },
+      {
+        "sectionType": "Referees",
+        "bbox": [
+          0.0,
+          689.281372070312,
+          612.0,
+          751.294372558594
+        ],
+        "pageIndex": 0,
+        "text": "References\nStephany Aldana, Team Member/Mentor, Cummins Power Generation: stephany.aldana@cummins.com\nBob Montero, Manager, Cummins Power Generation: bob.j.montero@cummins.com\nThad Norman, Hypercar Development: (980) 395-4161\nMike Irwin, Alumni Chairman, Theta Chi Fraternity: (804) 337-2644"
+      }
+    ],
+    "skills": [
+      "MATLAB",
+      "Product Design",
+      "Mechanical Engineering",
+      "Drawing",
+      "Mechanics",
+      "LabVIEW",
+      "Arduino",
+      "Prototyping",
+      "Aerodynamics",
+      "Structural Mechanics",
+      "Applied Mechanics",
+      "SolidWorks (CAD)",
+      "Mills",
+      "Manufacturing",
+      "Mainsail",
+      "Finite Element Methods",
+      "Computer Numerical Control (CNC)"
+    ],
+    "summary": "",
+    "websites": [],
+    "workExperience": [
+      {
+        "jobTitle": "Intern",
+        "organization": "Hypercar Development",
+        "location": null,
+        "dates": {},
+        "jobDescription": ""
+      },
+      {
+        "jobTitle": "Product Design Engineer Intern",
+        "organization": "Cummins Power Generation",
+        "location": null,
+        "dates": {},
+        "jobDescription": ""
+      }
+    ]
+  },
+  "meta": {
+    "identifier": "FGvPbipL",
+    "ready": true,
+    "failed": false,
+    "readyDt": "2021-02-08T06:42:10.568386Z",
+    "user": {
+      "documentCount": 2188,
+      "parsingCredits": 10000,
+      "email": "",
+      "isTrial": true
+    },
+    "fileName": null
+  },
+  "error": {
+    "errorCode": null,
+    "errorDetail": null
+  }
+}

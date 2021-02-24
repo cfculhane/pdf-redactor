@@ -2,7 +2,10 @@
 
 import sys
 from datetime import datetime
+from re import Pattern
+from typing import List
 
+from idna import unichr, unicode
 from pdfrw import PdfDict
 
 
@@ -58,7 +61,7 @@ class RedactorOptions:
     #
     # Since pdfrw doesn't support content stream compression, you should use a tool like qpdf
     # to decompress the streams before using this tool (see the README).
-    content_filters = []
+    content_filters: List[Pattern] = []
 
     # When replacement text isn't likely to have a glyph stored in the PDF's fonts,
     # replace the character with these other characters (if they don't have the same
@@ -121,7 +124,6 @@ def update_metadata(trailer, options):
     # Title, Author, Subject, Keywords, Creator, Producer, CreationDate, and ModDate
     # (the latter two containing Date values, the rest strings).
 
-    import codecs
     from pdfrw.objects import PdfString, PdfName
 
     # Create the metadata dict if it doesn't exist, since the caller may be adding fields.
@@ -394,7 +396,8 @@ def build_text_layer(document, options):
             return "Token<%s>" % repr(self.value)
 
     def process_text(token):
-        if token.value == "": return
+        if token.value == "":
+            return
         text_tokens.append(token)
 
     # For each page...
@@ -477,7 +480,7 @@ def build_text_layer(document, options):
             prev_prev_token = prev_token
             prev_token = token
 
-    return (text_tokens, page_tokens)
+    return text_tokens, page_tokens
 
 
 def chunk_pairs(s):
@@ -740,7 +743,8 @@ def update_text_layer(options, text_tokens, page_tokens):
                     text_tokens_charpos += len(text_tokens[text_tokens_index].value) - text_tokens_token_xdiff
                     text_tokens_index += 1
                     text_tokens_token_xdiff = 0
-                if text_tokens_index == len(text_tokens): break
+                if text_tokens_index == len(text_tokens):
+                    break
                 assert (text_tokens_charpos <= i1)
 
                 # The token at text_tokens_index, and possibly subsequent ones,
@@ -757,19 +761,19 @@ def update_text_layer(options, text_tokens, page_tokens):
                 assert mlen >= 0
 
                 # How much should we replace here?
-                if mlen < (i2 - i1):
+                # if mlen < (i2 - i1):
                     # There will be more replaced later, so take the same number
                     # of characters from the replacement text.
-                    r = replacement[:mlen]
-                    replacement = replacement[mlen:]
-                else:
-                    # This is the last token in which we'll replace text, so put
-                    # all of the remaining replacement content here.
-                    r = replacement
-                    replacement = None  # sanity
+                r = replacement[:mlen]
+                replacement = replacement[mlen:]
+                # else:
+                #     # This is the last token in which we'll replace text, so put
+                #     # all of the remaining replacement content here.
+                #     r = replacement
+                #     replacement = None  # sanity
 
                 # Do the replacement.
-                tok.value = tok.value[:mpos + text_tokens_token_xdiff] + r + tok.value[
+                tok.value = tok.original_value[:mpos + text_tokens_token_xdiff] + r + tok.original_value[
                                                                              mpos + mlen + text_tokens_token_xdiff:]
                 text_tokens_token_xdiff += len(r) - mlen
 
@@ -782,7 +786,8 @@ def apply_updated_text(document, text_tokens, page_tokens):
     # tokens in the page_tokens lists.
     from pdfrw import PdfArray
     for i, page in enumerate(document.pages):
-        if page.Contents is None: continue  # nothing was here
+        if page.Contents is None:
+            continue  # nothing was here
 
         # Replace the page's content stream with our updated tokens.
         # The content stream may have been an array of streams before,
@@ -811,7 +816,6 @@ def update_annotations(document, options):
 
 
 def update_annotation(annotation, options):
-    import re
     from pdfrw.objects import PdfString
 
     # Contents holds a plain-text representation of the annotation
